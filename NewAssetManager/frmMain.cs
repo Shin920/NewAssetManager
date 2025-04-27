@@ -22,11 +22,90 @@ namespace NewAssetManager
             
         }
 
+        private void DataLoadAddress()
+        {
+            //초기화 필요
+            lblHidden.Text = string.Empty;
+            txtUsername.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+
+            AddressDAC address = new AddressDAC();
+            dgvAddress.DataSource = address.GetAll().DefaultView;
+            address.Dispose();
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            Address myValue = new Address();
+            myValue.ip_user = txtUsername.Text;
+            myValue.ip_address = txtAddress.Text;
             using (AddressDAC cmp = new AddressDAC())
             {
-                dgvAddress.DataSource = cmp.GetAddressInfo(txtUsername.Text.Trim(), txtAddress.Text.Trim());
+                dgvAddress.DataSource = cmp.GetAddressInfo(myValue);
+            }
+        }
+
+        private void dgvAddress_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //클릭한 열 채번
+            int rldx = dgvAddress.CurrentRow.Index;
+
+            //클릭한 열의 0번 컬럼 값 (Primary Key)
+            lblHidden.Text = dgvAddress[0, rldx].Value.ToString();
+            txtUsername.Text = dgvAddress[2, rldx].Value.ToString();
+            txtAddress.Text = dgvAddress[1, rldx].Value.ToString();
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblHidden.Text))
+            {
+                MessageBox.Show("수정할 행을 선택해주세요");
+            }
+            else
+            {
+                Address myValue = new Address();
+                myValue.ip_user = txtUsername.Text;
+                myValue.ip_address = txtAddress.Text;
+                myValue.ip_code = lblHidden.Text;
+
+                DialogResult result = MessageBox.Show(myValue.ip_code + "의 정보를\n사용자 :" + myValue.ip_user + "\nIP : " + myValue.ip_address + "\n로 수정합니까?", "수정확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    AddressDAC aDAC = new AddressDAC();
+                    //Update 메서드의 리턴값 : int
+                    int rowsAffected = aDAC.Update(myValue);
+                    aDAC.Dispose();
+
+                    //적용된 행이 존재한다 : 성공
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("수정 완료", "알림");
+                        DataLoadAddress(); // 테이블 다시 불러오기
+                    }
+                    else
+                    {
+                        MessageBox.Show("수정 실패 - 데이터가 존재하지 않거나 변경사항이 없습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblHidden.Text))
+            {
+                MessageBox.Show("삭제할 행을 선택해주세요");
+            }
+            else
+            {
+                Address myValue = new Address();                
+                myValue.ip_code = lblHidden.Text;
+
+                //나머지 작업
             }
         }
     }

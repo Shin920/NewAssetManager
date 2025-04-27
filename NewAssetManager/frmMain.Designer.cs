@@ -32,7 +32,7 @@
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -43,6 +43,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.lblHidden = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddress)).BeginInit();
@@ -63,8 +66,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnDelete);
+            this.tabPage1.Controls.Add(this.lblHidden);
+            this.tabPage1.Controls.Add(this.btnInsert);
             this.tabPage1.Controls.Add(this.btnExcel);
-            this.tabPage1.Controls.Add(this.btnSave);
+            this.tabPage1.Controls.Add(this.btnUpdate);
             this.tabPage1.Controls.Add(this.btnSearch);
             this.tabPage1.Controls.Add(this.txtAddress);
             this.tabPage1.Controls.Add(this.txtUsername);
@@ -81,25 +87,26 @@
             // 
             // btnExcel
             // 
-            this.btnExcel.Location = new System.Drawing.Point(791, 55);
+            this.btnExcel.Location = new System.Drawing.Point(674, 69);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(113, 23);
+            this.btnExcel.Size = new System.Drawing.Size(230, 23);
             this.btnExcel.TabIndex = 7;
             this.btnExcel.Text = "EXCEL";
             this.btnExcel.UseVisualStyleBackColor = true;
             // 
-            // btnSave
+            // btnUpdate
             // 
-            this.btnSave.Location = new System.Drawing.Point(791, 31);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(113, 23);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "저장";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(791, 13);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(113, 23);
+            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.Text = "수정";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(791, 6);
+            this.btnSearch.Location = new System.Drawing.Point(674, 13);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(113, 23);
             this.btnSearch.TabIndex = 5;
@@ -109,14 +116,14 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(446, 33);
+            this.txtAddress.Location = new System.Drawing.Point(409, 38);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(185, 21);
             this.txtAddress.TabIndex = 4;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(167, 33);
+            this.txtUsername.Location = new System.Drawing.Point(178, 38);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 21);
             this.txtUsername.TabIndex = 3;
@@ -125,7 +132,7 @@
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblAddress.Location = new System.Drawing.Point(385, 36);
+            this.lblAddress.Location = new System.Drawing.Point(349, 41);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(44, 12);
             this.lblAddress.TabIndex = 2;
@@ -135,7 +142,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblUsername.Location = new System.Drawing.Point(94, 36);
+            this.lblUsername.Location = new System.Drawing.Point(105, 41);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(57, 12);
             this.lblUsername.TabIndex = 1;
@@ -155,11 +162,14 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAddress.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAddress.Location = new System.Drawing.Point(15, 84);
+            this.dgvAddress.Location = new System.Drawing.Point(15, 98);
+            this.dgvAddress.MultiSelect = false;
             this.dgvAddress.Name = "dgvAddress";
             this.dgvAddress.RowTemplate.Height = 23;
-            this.dgvAddress.Size = new System.Drawing.Size(889, 557);
+            this.dgvAddress.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAddress.Size = new System.Drawing.Size(889, 543);
             this.dgvAddress.TabIndex = 0;
+            this.dgvAddress.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAddress_CellClick);
             // 
             // tabPage2
             // 
@@ -198,6 +208,35 @@
             this.tabPage5.Text = "자산관리";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(674, 41);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(113, 23);
+            this.btnInsert.TabIndex = 8;
+            this.btnInsert.Text = "삽입";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // lblHidden
+            // 
+            this.lblHidden.AutoSize = true;
+            this.lblHidden.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblHidden.Location = new System.Drawing.Point(13, 13);
+            this.lblHidden.Name = "lblHidden";
+            this.lblHidden.Size = new System.Drawing.Size(0, 12);
+            this.lblHidden.TabIndex = 9;
+            this.lblHidden.Visible = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(791, 42);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(113, 23);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -205,7 +244,7 @@
             this.ClientSize = new System.Drawing.Size(956, 699);
             this.Controls.Add(this.tabCtrl);
             this.Name = "frmMain";
-            this.Text = "Form1";
+            this.Text = "AssetMaster";
             this.tabCtrl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -229,7 +268,10 @@
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnExcel;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Label lblHidden;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
