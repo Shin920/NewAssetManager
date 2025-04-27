@@ -19,9 +19,7 @@ namespace NewAssetManager
             InitializeComponent();
 
             dgvAddress.Font = new Font("맑은 고딕", 11);
-
-            // 행 높이 조정
-            dgvAddress.RowTemplate.Height = 35; // 폰트 크기에 따라 적당히 조정
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
