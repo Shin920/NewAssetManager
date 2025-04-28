@@ -16,9 +16,10 @@ namespace NewAssetManager
 
             //폰트 수정 Test
             dgvAddress.Font = new Font("맑은 고딕", 11);
-            
+
         }
 
+        #region IP관리Tab화면
         private void DataLoadAddress()
         {
             //초기화 필요            
@@ -35,9 +36,9 @@ namespace NewAssetManager
             Address myValue = new Address();
             myValue.ip_user = txtUsername.Text;
             myValue.ip_address = txtAddress.Text;
-            using (AddressDAC cmp = new AddressDAC())
+            using (AddressDAC aDAC = new AddressDAC())
             {
-                dgvAddress.DataSource = cmp.GetAddressInfo(myValue);
+                dgvAddress.DataSource = aDAC.GetAddressInfo(myValue);
             }
         }
 
@@ -48,7 +49,7 @@ namespace NewAssetManager
 
             //히든 라벨 제거
             //txtAddress.Enabled = false;
-            
+
             txtUsername.Text = dgvAddress[3, rldx].Value.ToString();
             txtAddress.Text = dgvAddress[0, rldx].Value.ToString();
 
@@ -84,29 +85,6 @@ namespace NewAssetManager
                     DataLoadAddress();
                 }
 
-
-
-
-                //DialogResult result = MessageBox.Show(myValue.ip_address + "\n의 정보를 수정합니까?", "수정확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                //if (result == DialogResult.Yes)
-                //{
-                //    AddressDAC aDAC = new AddressDAC();
-                //    //Update 메서드의 리턴값 : int
-                //    int rowsAffected = aDAC.Update(myValue);
-                //    aDAC.Dispose();
-
-                //    //적용된 행이 존재한다 : 성공
-                //    if (rowsAffected > 0)
-                //    {
-                //        MessageBox.Show("수정 완료", "알림");
-                //        DataLoadAddress(); // 테이블 다시 불러오기
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("수정 실패 - 데이터가 존재하지 않거나 변경사항이 없습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-                //}
             }
 
         }
@@ -160,7 +138,7 @@ namespace NewAssetManager
         {
             ExportToExcelWithEPPlus();
         }
-
+        #endregion
         private void ExportToExcelWithEPPlus()
         {
             SaveFileDialog dlg = new SaveFileDialog();
