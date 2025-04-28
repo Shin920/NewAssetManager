@@ -18,6 +18,7 @@ namespace NewAssetManager
         {
             InitializeComponent();
 
+            //폰트 수정 Test
             dgvAddress.Font = new Font("맑은 고딕", 11);
             
         }
