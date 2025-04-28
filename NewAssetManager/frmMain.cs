@@ -25,8 +25,7 @@ namespace NewAssetManager
 
         private void DataLoadAddress()
         {
-            //초기화 필요
-            lblHidden.Text = string.Empty;
+            //초기화 필요            
             txtUsername.Text = string.Empty;
             txtAddress.Text = string.Empty;
 
@@ -51,16 +50,16 @@ namespace NewAssetManager
             //클릭한 열 채번
             int rldx = dgvAddress.CurrentRow.Index;
 
-            //클릭한 열의 0번 컬럼 값 (Primary Key)
-            lblHidden.Text = dgvAddress[0, rldx].Value.ToString();
-            txtUsername.Text = dgvAddress[2, rldx].Value.ToString();
-            txtAddress.Text = dgvAddress[1, rldx].Value.ToString();
+            //히든 라벨 제거
+           
+            txtUsername.Text = dgvAddress[3, rldx].Value.ToString();
+            txtAddress.Text = dgvAddress[0, rldx].Value.ToString();
 
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(lblHidden.Text))
+            if (string.IsNullOrEmpty(txtAddress.Text))
             {
                 MessageBox.Show("수정할 행을 선택해주세요");
             }
@@ -69,9 +68,9 @@ namespace NewAssetManager
                 Address myValue = new Address();
                 myValue.ip_user = txtUsername.Text;
                 myValue.ip_address = txtAddress.Text;
-                myValue.ip_code = lblHidden.Text;
+               
 
-                DialogResult result = MessageBox.Show(myValue.ip_code + "의 정보를\n사용자 :" + myValue.ip_user + "\nIP : " + myValue.ip_address + "\n로 수정합니까?", "수정확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show(myValue.ip_address + "\n의 정보를 수정합니까?", "수정확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -97,16 +96,26 @@ namespace NewAssetManager
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(lblHidden.Text))
+            if (string.IsNullOrEmpty(txtAddress.Text))
             {
                 MessageBox.Show("삭제할 행을 선택해주세요");
             }
             else
             {
                 Address myValue = new Address();                
-                myValue.ip_code = lblHidden.Text;
+                //myValue.ip_code = lblHidden.Text;
 
                 //나머지 작업
+            }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            frmIpReg frm = new frmIpReg();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("등록 완료.");
             }
         }
     }

@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lblHidden = new System.Windows.Forms.Label();
+            this.btnInsert = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.lblHidden = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddress)).BeginInit();
@@ -84,6 +84,36 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "IP관리";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(791, 42);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(113, 23);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lblHidden
+            // 
+            this.lblHidden.AutoSize = true;
+            this.lblHidden.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblHidden.Location = new System.Drawing.Point(13, 13);
+            this.lblHidden.Name = "lblHidden";
+            this.lblHidden.Size = new System.Drawing.Size(0, 12);
+            this.lblHidden.TabIndex = 9;
+            this.lblHidden.Visible = false;
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(674, 41);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(113, 23);
+            this.btnInsert.TabIndex = 8;
+            this.btnInsert.Text = "삽입";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnExcel
             // 
@@ -162,6 +192,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAddress.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAddress.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAddress.Location = new System.Drawing.Point(15, 98);
             this.dgvAddress.MultiSelect = false;
             this.dgvAddress.Name = "dgvAddress";
@@ -207,35 +238,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "자산관리";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(674, 41);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(113, 23);
-            this.btnInsert.TabIndex = 8;
-            this.btnInsert.Text = "삽입";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            // 
-            // lblHidden
-            // 
-            this.lblHidden.AutoSize = true;
-            this.lblHidden.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblHidden.Location = new System.Drawing.Point(13, 13);
-            this.lblHidden.Name = "lblHidden";
-            this.lblHidden.Size = new System.Drawing.Size(0, 12);
-            this.lblHidden.TabIndex = 9;
-            this.lblHidden.Visible = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(791, 42);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(113, 23);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "삭제";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmMain
             // 

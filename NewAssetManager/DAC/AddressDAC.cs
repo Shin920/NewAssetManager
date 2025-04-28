@@ -12,11 +12,14 @@ namespace NewAssetManager.DAC
 {
     public class Address
     {
-        public string ip_code { get; set; }
         public string ip_address { get; set; }
+        public string ip_purpose { get; set; }
+        public string ip_dept { get; set; }
         public string ip_user { get; set; }
         public string ip_location { get; set; }
         public string ip_remark { get; set; }
+        public string ip_date { get; set; }
+        public string ip_external { get; set; }
     }
 
     class AddressDAC : IDisposable
@@ -38,7 +41,7 @@ namespace NewAssetManager.DAC
         {
             DataTable dt = new DataTable();
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ip_code, ip_address, ip_user, ip_location, ip_remark FROM Address WHERE 1=1");
+            sql.Append("SELECT IP, 용도, 소속, 사용자명, 설치위치, 비고, 할당일자, 외부사용 FROM CPT_IP WHERE 1=1");
 
             using (SqlCommand cmd = new SqlCommand(sql.ToString(), conn))
             {
@@ -56,13 +59,13 @@ namespace NewAssetManager.DAC
             DataTable dt = new DataTable();
 
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT ip_code, ip_address, ip_user, ip_location, ip_remark FROM Address WHERE 1=1");
+            sql.Append("SELECT IP, 용도, 소속, 사용자명, 설치위치, 비고, 할당일자, 외부사용 FROM CPT_IP WHERE 1=1");
 
             if (!string.IsNullOrEmpty(value.ip_user))
-                sql.Append(" AND ip_user = @username");
+                sql.Append(" AND 사용자명 = @username");
 
             if (!string.IsNullOrEmpty(value.ip_address))
-                sql.Append(" AND ip_address = @address");
+                sql.Append(" AND IP = @address");
 
             using (SqlCommand cmd = new SqlCommand(sql.ToString(), conn))
             {
@@ -84,12 +87,18 @@ namespace NewAssetManager.DAC
         {
             try
             {
-                string sql = @"UPDATE Address SET ip_user=@ip_user, ip_address=@ip_address WHERE ip_code=@ip_code";
+                string sql = @"UPDATE CPT_IP SET ip_user=@ip_user, ip_address=@ip_address WHERE IP=@ip_Address";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
                     cmd.Parameters.AddWithValue("@ip_address", value.ip_address);
-                    cmd.Parameters.AddWithValue("@ip_code", value.ip_code);
+                   
 
                     return cmd.ExecuteNonQuery();
                 }
@@ -120,25 +129,31 @@ namespace NewAssetManager.DAC
         }
 
 
-        //등록부는 Primary Key인 ip_code 항목의 입력까지 필요하므로 따로 작성하지 않음
-        //public int Insert(Address value)
-        //{
-        //    try
-        //    {
-        //        string sql = @"INSERT INTO Address (ip_user, ip_address)
-        //               VALUES (@ip_user, @ip_address)";
-        //        using (SqlCommand cmd = new SqlCommand(sql, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
-        //            cmd.Parameters.AddWithValue("@ip_address", value.ip_address);                   
+        //등록부는 New Form 사용
+        public int Insert(Address value)
+        {
+            try
+            {
+                string sql = @"INSERT INTO CPT_IP (IP, 용도, 소속, 사용자명, 설치위치, 비고, 할당일자, 외부사용)
+                       VALUES (@ip_address, @ip_purpose, @ip_dept, @ip_user, @ip_location, @ip_remark, @ip_date, @ip_address)";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ip_address", value.ip_address);
+                    cmd.Parameters.AddWithValue("@ip_purpose", value.ip_purpose);
+                    cmd.Parameters.AddWithValue("@ip_dept", value.ip_dept);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@ip_location", value.ip_location);
+                    cmd.Parameters.AddWithValue("@ip_remark", value.ip_remark);
+                    cmd.Parameters.AddWithValue("@ip_user", value.ip_date);
+                    cmd.Parameters.AddWithValue("@ip_address", value.ip_external);
 
-        //            return cmd.ExecuteNonQuery();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Insert 실패: " + ex.Message);
-        //    }
-        //}
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Insert 실패: " + ex.Message);
+            }
+        }
     }
 }

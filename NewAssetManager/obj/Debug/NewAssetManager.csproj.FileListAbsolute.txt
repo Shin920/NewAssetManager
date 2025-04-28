@@ -87,3 +87,4 @@ F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.CopyComplete
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.exe
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.pdb
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.frmIpReg.resources
