@@ -43,3 +43,47 @@ D:\C#\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.CopyCompl
 D:\C#\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.exe
 D:\C#\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.pdb
 D:\C#\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.frmMain.resources
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\NewAssetManager.exe.config
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\NewAssetManager.exe
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\NewAssetManager.pdb
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\BouncyCastle.Cryptography.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\Google.Protobuf.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\K4os.Compression.LZ4.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\K4os.Compression.LZ4.Streams.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\K4os.Hash.xxHash.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\MySql.Data.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Buffers.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Configuration.ConfigurationManager.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.IO.Pipelines.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Memory.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Numerics.Vectors.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Threading.Tasks.Extensions.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\ZstdSharp.dll
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\BouncyCastle.Cryptography.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\Google.Protobuf.pdb
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\Google.Protobuf.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\K4os.Compression.LZ4.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\K4os.Compression.LZ4.Streams.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\K4os.Hash.xxHash.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\MySql.Data.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Buffers.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Configuration.ConfigurationManager.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.IO.Pipelines.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Memory.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Numerics.Vectors.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Threading.Tasks.Extensions.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.AssemblyReference.cache
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.exe.config
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.frmMain.resources
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.Properties.Resources.resources
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.GenerateResource.cache
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.CoreCompileInputs.cache
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.CopyComplete
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.exe
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.pdb
