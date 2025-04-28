@@ -126,6 +126,7 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Location = new System.Drawing.Point(791, 13);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(113, 23);
@@ -146,14 +147,14 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(409, 38);
+            this.txtAddress.Location = new System.Drawing.Point(114, 31);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(185, 21);
             this.txtAddress.TabIndex = 4;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(178, 38);
+            this.txtUsername.Location = new System.Drawing.Point(487, 31);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 21);
             this.txtUsername.TabIndex = 3;
@@ -162,7 +163,7 @@
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblAddress.Location = new System.Drawing.Point(349, 41);
+            this.lblAddress.Location = new System.Drawing.Point(54, 34);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(44, 12);
             this.lblAddress.TabIndex = 2;
@@ -172,7 +173,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblUsername.Location = new System.Drawing.Point(105, 41);
+            this.lblUsername.Location = new System.Drawing.Point(414, 34);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(57, 12);
             this.lblUsername.TabIndex = 1;

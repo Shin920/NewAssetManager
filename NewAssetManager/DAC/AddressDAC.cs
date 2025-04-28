@@ -110,14 +110,14 @@ namespace NewAssetManager.DAC
             }
         }
 
-        public int Delete(string ip_code)
+        public int Delete(Address value)
         {
             try
             {
-                string sql = @"DELETE FROM Address WHERE ip_code = @ip_code";
+                string sql = @"DELETE FROM CPT_IP WHERE IP = @ip_address";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ip_code", ip_code);
+                    cmd.Parameters.AddWithValue("@ip_address", value.ip_address);
 
                     return cmd.ExecuteNonQuery();
                 }
@@ -135,7 +135,7 @@ namespace NewAssetManager.DAC
             try
             {
                 string sql = @"INSERT INTO CPT_IP (IP, 용도, 소속, 사용자명, 설치위치, 비고, 할당일자, 외부사용)
-                       VALUES (@ip_address, @ip_purpose, @ip_dept, @ip_user, @ip_location, @ip_remark, @ip_date, @ip_address)";
+                       VALUES (@ip_address, @ip_purpose, @ip_dept, @ip_user, @ip_location, @ip_remark, @ip_date, @ip_external)";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@ip_address", value.ip_address);
@@ -144,8 +144,8 @@ namespace NewAssetManager.DAC
                     cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
                     cmd.Parameters.AddWithValue("@ip_location", value.ip_location);
                     cmd.Parameters.AddWithValue("@ip_remark", value.ip_remark);
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_date);
-                    cmd.Parameters.AddWithValue("@ip_address", value.ip_external);
+                    cmd.Parameters.AddWithValue("@ip_date", value.ip_date);
+                    cmd.Parameters.AddWithValue("@ip_external", value.ip_external);
 
                     return cmd.ExecuteNonQuery();
                 }

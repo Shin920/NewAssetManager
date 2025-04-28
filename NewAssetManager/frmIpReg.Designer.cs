@@ -46,9 +46,9 @@ namespace NewAssetManager
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dtpRegDate = new System.Windows.Forms.DateTimePicker();
             this.lblExternal = new System.Windows.Forms.Label();
-            this.cmbExternal = new System.Windows.Forms.ComboBox();
             this.btnReg = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.txtExternal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -66,7 +66,7 @@ namespace NewAssetManager
             this.txtUsername.Location = new System.Drawing.Point(160, 187);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(185, 21);
-            this.txtUsername.TabIndex = 5;
+            this.txtUsername.TabIndex = 3;
             // 
             // lblUsername
             // 
@@ -83,7 +83,7 @@ namespace NewAssetManager
             this.txtAddress.Location = new System.Drawing.Point(160, 93);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(185, 21);
-            this.txtAddress.TabIndex = 7;
+            this.txtAddress.TabIndex = 0;
             // 
             // lblAddress
             // 
@@ -100,7 +100,7 @@ namespace NewAssetManager
             this.txtPurpose.Location = new System.Drawing.Point(160, 126);
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Size = new System.Drawing.Size(185, 21);
-            this.txtPurpose.TabIndex = 9;
+            this.txtPurpose.TabIndex = 1;
             // 
             // lblPurpose
             // 
@@ -117,7 +117,7 @@ namespace NewAssetManager
             this.txtDept.Location = new System.Drawing.Point(160, 157);
             this.txtDept.Name = "txtDept";
             this.txtDept.Size = new System.Drawing.Size(185, 21);
-            this.txtDept.TabIndex = 11;
+            this.txtDept.TabIndex = 2;
             // 
             // lblDept
             // 
@@ -134,7 +134,7 @@ namespace NewAssetManager
             this.txtLocation.Location = new System.Drawing.Point(160, 216);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(185, 21);
-            this.txtLocation.TabIndex = 13;
+            this.txtLocation.TabIndex = 4;
             // 
             // lblLocation
             // 
@@ -152,7 +152,7 @@ namespace NewAssetManager
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(185, 79);
-            this.txtRemark.TabIndex = 15;
+            this.txtRemark.TabIndex = 5;
             // 
             // lblRemark
             // 
@@ -186,7 +186,7 @@ namespace NewAssetManager
             this.dtpRegDate.Location = new System.Drawing.Point(160, 338);
             this.dtpRegDate.Name = "dtpRegDate";
             this.dtpRegDate.Size = new System.Drawing.Size(185, 21);
-            this.dtpRegDate.TabIndex = 19;
+            this.dtpRegDate.TabIndex = 6;
             // 
             // lblExternal
             // 
@@ -198,14 +198,6 @@ namespace NewAssetManager
             this.lblExternal.TabIndex = 20;
             this.lblExternal.Text = "외부사용";
             // 
-            // cmbExternal
-            // 
-            this.cmbExternal.FormattingEnabled = true;
-            this.cmbExternal.Location = new System.Drawing.Point(160, 381);
-            this.cmbExternal.Name = "cmbExternal";
-            this.cmbExternal.Size = new System.Drawing.Size(185, 20);
-            this.cmbExternal.TabIndex = 21;
-            // 
             // btnReg
             // 
             this.btnReg.Location = new System.Drawing.Point(102, 449);
@@ -214,6 +206,7 @@ namespace NewAssetManager
             this.btnReg.TabIndex = 22;
             this.btnReg.Text = "등록";
             this.btnReg.UseVisualStyleBackColor = true;
+            this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
             // btnCancel
             // 
@@ -225,14 +218,21 @@ namespace NewAssetManager
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtExternal
+            // 
+            this.txtExternal.Location = new System.Drawing.Point(160, 378);
+            this.txtExternal.Name = "txtExternal";
+            this.txtExternal.Size = new System.Drawing.Size(185, 21);
+            this.txtExternal.TabIndex = 7;
+            // 
             // frmIpReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 517);
+            this.Controls.Add(this.txtExternal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReg);
-            this.Controls.Add(this.cmbExternal);
             this.Controls.Add(this.lblExternal);
             this.Controls.Add(this.dtpRegDate);
             this.Controls.Add(this.dateTimePicker1);
@@ -276,8 +276,8 @@ namespace NewAssetManager
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dtpRegDate;
         private System.Windows.Forms.Label lblExternal;
-        private System.Windows.Forms.ComboBox cmbExternal;
         private System.Windows.Forms.Button btnReg;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtExternal;
     }
 }

@@ -51,7 +51,8 @@ namespace NewAssetManager
             int rldx = dgvAddress.CurrentRow.Index;
 
             //히든 라벨 제거
-           
+            //txtAddress.Enabled = false;
+            
             txtUsername.Text = dgvAddress[3, rldx].Value.ToString();
             txtAddress.Text = dgvAddress[0, rldx].Value.ToString();
 
@@ -67,9 +68,9 @@ namespace NewAssetManager
             {
                 Address myValue = new Address();
                 myValue.ip_user = txtUsername.Text;
-                myValue.ip_address = txtAddress.Text;
-               
 
+                //myValue.ip_address = txtAddress.Text; IP = pKey 이므로 수정 되지 않음
+               
                 DialogResult result = MessageBox.Show(myValue.ip_address + "\n의 정보를 수정합니까?", "수정확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
@@ -102,10 +103,29 @@ namespace NewAssetManager
             }
             else
             {
-                Address myValue = new Address();                
-                //myValue.ip_code = lblHidden.Text;
+                Address myValue = new Address();
+                myValue.ip_address = txtAddress.Text.Trim();
 
-                //나머지 작업
+                DialogResult result = MessageBox.Show(myValue.ip_address + "\n의 정보를 삭제합니까?", "삭제확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+
+                if (result == DialogResult.Yes)
+                {
+                    AddressDAC aDAC = new AddressDAC();
+                    int rowsAffected = aDAC.Delete(myValue);
+                    aDAC.Dispose();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("삭제 완료", "알림");
+                        DataLoadAddress(); // 테이블 다시 불러오기
+                    }
+                    else
+                    {
+                        MessageBox.Show("삭제 실패.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
             }
         }
 
@@ -113,9 +133,10 @@ namespace NewAssetManager
         {
             frmIpReg frm = new frmIpReg();
 
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.Cancel)
             {
-                MessageBox.Show("등록 완료.");
+                //MessageBox.Show("등록 완료.");
+                DataLoadAddress();
             }
         }
     }
