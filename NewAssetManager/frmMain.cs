@@ -1,14 +1,9 @@
 ﻿using NewAssetManager.DAC;
-using Org.BouncyCastle.Crypto.Macs;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace NewAssetManager
 {
@@ -137,6 +132,105 @@ namespace NewAssetManager
             {
                 //MessageBox.Show("등록 완료.");
                 DataLoadAddress();
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Excel Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Excel.Application xlApp = new Excel.Application();
+                Excel.Workbook xlWorkBook = xlApp.Workbooks.Add();
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+
+                //DataTable dt = (DataTable)dgv.DataSource; 오류로 개별함수 사용
+                DataTable dt = GetDataGridViewAsDataTable(dgvAddress);
+
+
+
+
+
+                for (int c = 0; c < dt.Columns.Count; c++)
+                {
+                    xlWorkSheet.Cells[1, c + 1] = dt.Columns[c].ColumnName;
+                }
+
+                for (int r = 0; r < dt.Rows.Count; r++)
+                {
+                    for (int c = 0; c < dt.Columns.Count; c++)
+                    {
+                        xlWorkSheet.Cells[r + 2, c + 1] = dt.Rows[r][c].ToString();
+                    }
+                }
+
+                xlWorkBook.SaveAs(dlg.FileName, Excel.XlFileFormat.xlWorkbookNormal);
+                xlWorkBook.Close(true);
+                xlApp.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlApp);
+
+                MessageBox.Show("엑셀 다운로드 완료");
+
+            }
+
+
+        }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
+        public static DataTable GetDataGridViewAsDataTable(DataGridView _DataGridView) //그리드뷰 소스를 DataTable로
+        {
+            try
+            {
+                if (_DataGridView.ColumnCount == 0)
+                    return null;
+                DataTable dtSource = new DataTable();
+                // 컬럼 만듦
+                foreach (DataGridViewColumn col in _DataGridView.Columns)
+                {
+                    if (col.ValueType == null)
+                        dtSource.Columns.Add(col.Name, typeof(string));
+                    else
+                        dtSource.Columns.Add(col.Name, col.ValueType);
+                    dtSource.Columns[col.Name].Caption = col.HeaderText;
+                }
+                // 열 데이터 삽입
+                foreach (DataGridViewRow row in _DataGridView.Rows)
+                {
+                    DataRow drNewRow = dtSource.NewRow();
+                    foreach (DataColumn col in dtSource.Columns)
+                    {
+                        drNewRow[col.ColumnName] = row.Cells[col.ColumnName].Value;
+                    }
+                    dtSource.Rows.Add(drNewRow);
+                }
+                return dtSource;
+            }
+            catch
+            {
+                return null;
             }
         }
     }
