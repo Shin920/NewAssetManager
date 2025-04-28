@@ -87,16 +87,17 @@ namespace NewAssetManager.DAC
         {
             try
             {
-                string sql = @"UPDATE CPT_IP SET ip_user=@ip_user, ip_address=@ip_address WHERE IP=@ip_Address";
+                string sql = @"UPDATE CPT_IP SET 용도=@purpose, 소속=@dept, 사용자명=@user, 설치위치=@location, 
+                            비고=@remark, 할당일자=@date, 외부사용=@external WHERE IP=@ip_Address";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
-                    cmd.Parameters.AddWithValue("@ip_user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@purpose", value.ip_purpose);
+                    cmd.Parameters.AddWithValue("@dept", value.ip_dept);
+                    cmd.Parameters.AddWithValue("@user", value.ip_user);
+                    cmd.Parameters.AddWithValue("@location", value.ip_location);
+                    cmd.Parameters.AddWithValue("@remark", value.ip_remark);
+                    cmd.Parameters.AddWithValue("@date", value.ip_date);
+                    cmd.Parameters.AddWithValue("@external", value.ip_external);
                     cmd.Parameters.AddWithValue("@ip_address", value.ip_address);
                    
 

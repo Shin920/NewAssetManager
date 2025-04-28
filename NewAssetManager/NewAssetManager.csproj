@@ -106,6 +106,12 @@
     <Compile Include="frmIpReg.Designer.cs">
       <DependentUpon>frmIpReg.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIpUdt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIpUdt.Designer.cs">
+      <DependentUpon>frmIpUdt.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmIpReg.resx">
       <DependentUpon>frmIpReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIpUdt.resx">
+      <DependentUpon>frmIpUdt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

@@ -78,7 +78,6 @@ F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Memory.xml
 F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Numerics.Vectors.xml
 F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Threading.Tasks.Extensions.xml
-F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.AssemblyReference.cache
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.exe.config
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.frmMain.resources
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.Properties.Resources.resources
@@ -89,3 +88,5 @@ F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.exe
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.pdb
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.frmIpReg.resources
 F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.ResolveComReference.cache
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.AssemblyReference.cache
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.frmIpUdt.resources

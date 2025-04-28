@@ -61,31 +61,51 @@ namespace NewAssetManager
             }
             else
             {
+                int rldx = dgvAddress.CurrentRow.Index;
+
                 Address myValue = new Address();
-                myValue.ip_user = txtUsername.Text;
+                myValue.ip_address = txtAddress.Text.Trim();    //그냥 선택값으로
+                myValue.ip_purpose = dgvAddress[1, rldx].Value.ToString();
+                myValue.ip_dept = dgvAddress[2, rldx].Value.ToString();
+                myValue.ip_user = dgvAddress[3, rldx].Value.ToString();
+                myValue.ip_location = dgvAddress[4, rldx].Value.ToString();
+                myValue.ip_remark = dgvAddress[5, rldx].Value.ToString();
+                myValue.ip_date = dgvAddress[6, rldx].Value.ToString();
+                myValue.ip_external = dgvAddress[7, rldx].Value.ToString();
 
-                //myValue.ip_address = txtAddress.Text; IP = pKey 이므로 수정 되지 않음
-               
-                DialogResult result = MessageBox.Show(myValue.ip_address + "\n의 정보를 수정합니까?", "수정확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                // 정보만 담고, 신규 폼 열어서 진행
 
-                if (result == DialogResult.Yes)
+                frmIpUdt frm = new frmIpUdt(myValue);
+
+                if (frm.ShowDialog() == DialogResult.Yes)
                 {
-                    AddressDAC aDAC = new AddressDAC();
-                    //Update 메서드의 리턴값 : int
-                    int rowsAffected = aDAC.Update(myValue);
-                    aDAC.Dispose();
-
-                    //적용된 행이 존재한다 : 성공
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("수정 완료", "알림");
-                        DataLoadAddress(); // 테이블 다시 불러오기
-                    }
-                    else
-                    {
-                        MessageBox.Show("수정 실패 - 데이터가 존재하지 않거나 변경사항이 없습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    //MessageBox.Show("등록 완료.");
+                    DataLoadAddress();
                 }
+
+
+
+
+                //DialogResult result = MessageBox.Show(myValue.ip_address + "\n의 정보를 수정합니까?", "수정확인", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                //if (result == DialogResult.Yes)
+                //{
+                //    AddressDAC aDAC = new AddressDAC();
+                //    //Update 메서드의 리턴값 : int
+                //    int rowsAffected = aDAC.Update(myValue);
+                //    aDAC.Dispose();
+
+                //    //적용된 행이 존재한다 : 성공
+                //    if (rowsAffected > 0)
+                //    {
+                //        MessageBox.Show("수정 완료", "알림");
+                //        DataLoadAddress(); // 테이블 다시 불러오기
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("수정 실패 - 데이터가 존재하지 않거나 변경사항이 없습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
             }
 
         }
