@@ -3,7 +3,8 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
+using System.IO;
 
 namespace NewAssetManager
 {
@@ -157,49 +158,53 @@ namespace NewAssetManager
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
+            ExportToExcelWithEPPlus();
+        }
+
+        private void ExportToExcelWithEPPlus()
+        {
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "Excel Files(*.xls)|*.xls";
-            dlg.Title = "엑셀파일로 내보내기";
+            dlg.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            dlg.Title = "엑셀 파일로 내보내기";
+
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                Excel.Application xlApp = new Excel.Application();
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Add();
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-
-                //DataTable dt = (DataTable)dgv.DataSource; 오류로 개별함수 사용
+                // DataGridView를 DataTable로 변환
                 DataTable dt = GetDataGridViewAsDataTable(dgvAddress);
 
-
-
-
-
-                for (int c = 0; c < dt.Columns.Count; c++)
+                if (dt == null || dt.Rows.Count == 0)
                 {
-                    xlWorkSheet.Cells[1, c + 1] = dt.Columns[c].ColumnName;
+                    MessageBox.Show("내보낼 데이터가 없습니다.");
+                    return;
                 }
 
-                for (int r = 0; r < dt.Rows.Count; r++)
+                // EPPlus 사용                
+                using (var package = new ExcelPackage())
                 {
+                    var worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                    // 컬럼명 추가
                     for (int c = 0; c < dt.Columns.Count; c++)
                     {
-                        xlWorkSheet.Cells[r + 2, c + 1] = dt.Rows[r][c].ToString();
+                        worksheet.Cells[1, c + 1].Value = dt.Columns[c].ColumnName;
                     }
+
+                    // 데이터 추가
+                    for (int r = 0; r < dt.Rows.Count; r++)
+                    {
+                        for (int c = 0; c < dt.Columns.Count; c++)
+                        {
+                            worksheet.Cells[r + 2, c + 1].Value = dt.Rows[r][c]?.ToString();
+                        }
+                    }
+
+                    // 저장
+                    var fileInfo = new FileInfo(dlg.FileName);
+                    package.SaveAs(fileInfo);
                 }
 
-                xlWorkBook.SaveAs(dlg.FileName, Excel.XlFileFormat.xlWorkbookNormal);
-                xlWorkBook.Close(true);
-                xlApp.Quit();
-
-                releaseObject(xlWorkSheet);
-                releaseObject(xlWorkBook);
-                releaseObject(xlApp);
-
                 MessageBox.Show("엑셀 다운로드 완료");
-
             }
-
-
         }
 
         private void releaseObject(object obj)
