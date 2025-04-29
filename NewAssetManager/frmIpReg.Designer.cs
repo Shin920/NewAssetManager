@@ -49,6 +49,7 @@ namespace NewAssetManager
             this.btnReg = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtExternal = new System.Windows.Forms.TextBox();
+            this.chkNull = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -225,11 +226,22 @@ namespace NewAssetManager
             this.txtExternal.Size = new System.Drawing.Size(185, 21);
             this.txtExternal.TabIndex = 7;
             // 
+            // chkNull
+            // 
+            this.chkNull.AutoSize = true;
+            this.chkNull.Location = new System.Drawing.Point(359, 343);
+            this.chkNull.Name = "chkNull";
+            this.chkNull.Size = new System.Drawing.Size(86, 16);
+            this.chkNull.TabIndex = 24;
+            this.chkNull.Text = "Null값 사용";
+            this.chkNull.UseVisualStyleBackColor = true;
+            // 
             // frmIpReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 517);
+            this.Controls.Add(this.chkNull);
             this.Controls.Add(this.txtExternal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReg);
@@ -279,5 +291,6 @@ namespace NewAssetManager
         private System.Windows.Forms.Button btnReg;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtExternal;
+        private System.Windows.Forms.CheckBox chkNull;
     }
 }

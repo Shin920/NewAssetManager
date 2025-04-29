@@ -16,6 +16,7 @@ namespace NewAssetManager
 
             //폰트 수정 Test
             dgvAddress.Font = new Font("맑은 고딕", 11);
+            //dgvAddress.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 
         }
 
@@ -141,8 +142,12 @@ namespace NewAssetManager
         #endregion
         private void ExportToExcelWithEPPlus()
         {
+
+            string nowDateTime = DateTime.Now.ToString("yyyyMMdd");
+
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            dlg.FileName = $"IP목록_{nowDateTime}.xlsx";
             dlg.Title = "엑셀 파일로 내보내기";
 
             if (dlg.ShowDialog() == DialogResult.OK)

@@ -48,6 +48,7 @@ namespace NewAssetManager
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.chkNull = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtExternal
@@ -218,11 +219,22 @@ namespace NewAssetManager
             this.label1.TabIndex = 24;
             this.label1.Text = "기존 IP 수정";
             // 
+            // chkNull
+            // 
+            this.chkNull.AutoSize = true;
+            this.chkNull.Location = new System.Drawing.Point(359, 346);
+            this.chkNull.Name = "chkNull";
+            this.chkNull.Size = new System.Drawing.Size(86, 16);
+            this.chkNull.TabIndex = 43;
+            this.chkNull.Text = "Null값 사용";
+            this.chkNull.UseVisualStyleBackColor = true;
+            // 
             // frmIpUdt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 517);
+            this.Controls.Add(this.chkNull);
             this.Controls.Add(this.txtExternal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
@@ -270,5 +282,6 @@ namespace NewAssetManager
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkNull;
     }
 }

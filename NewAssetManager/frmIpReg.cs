@@ -41,7 +41,10 @@ namespace NewAssetManager
                 myValue.ip_user = txtUsername.Text.Trim();
                 myValue.ip_location = txtLocation.Text.Trim();
                 myValue.ip_remark = txtRemark.Text.Trim();
-                myValue.ip_date = dtpRegDate.Value.ToString("yyyy.MM.dd");
+
+                //할당일자 Null값 추가
+                myValue.ip_date = chkNull.Checked ? string.Empty : dtpRegDate.Value.ToString("yyyy.MM.dd");
+
                 myValue.ip_external = txtExternal.Text.Trim();
 
                 AddressDAC aDAC = new AddressDAC();

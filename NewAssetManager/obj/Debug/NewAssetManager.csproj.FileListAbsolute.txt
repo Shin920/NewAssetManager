@@ -95,3 +95,4 @@ F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Security.Crypto
 F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\EPPlus.xml
 F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
 F:\GIT Projects\NewAssetManager\NewAssetManager\bin\Debug\System.Security.Cryptography.Xml.xml
+F:\GIT Projects\NewAssetManager\NewAssetManager\obj\Debug\NewAssetManager.csproj.AssemblyReference.cache

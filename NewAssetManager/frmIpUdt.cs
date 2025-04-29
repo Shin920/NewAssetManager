@@ -40,7 +40,9 @@ namespace NewAssetManager
             value.ip_user = txtUsername.Text.Trim();
             value.ip_location = txtLocation.Text.Trim();
             value.ip_remark = txtRemark.Text.Trim();
-            value.ip_date = dtpRegDate.Value.ToString("yyyy.MM.dd");
+
+            value.ip_date = chkNull.Checked ? string.Empty : dtpRegDate.Value.ToString("yyyy.MM.dd");
+
             value.ip_external = txtExternal.Text.Trim();
 
 
