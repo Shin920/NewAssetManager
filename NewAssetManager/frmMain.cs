@@ -140,6 +140,8 @@ namespace NewAssetManager
             ExportToExcelWithEPPlus();
         }
         #endregion
+
+        // EPPlus 4.5.3.3 사용 (도구-> Nuget패키지 관리자-> 솔루션용 Nuget 패키지 관리)
         private void ExportToExcelWithEPPlus()
         {
 
