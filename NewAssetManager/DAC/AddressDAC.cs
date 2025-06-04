@@ -62,17 +62,19 @@ namespace NewAssetManager.DAC
             sql.Append("SELECT IP, 용도, 소속, 사용자명, 설치위치, 비고, 할당일자, 외부사용 FROM CPT_IP WHERE 1=1");
 
             if (!string.IsNullOrEmpty(value.ip_user))
-                sql.Append(" AND 사용자명 = @username");
+                sql.Append(" AND 사용자명 LIKE @username");
 
             if (!string.IsNullOrEmpty(value.ip_address))
-                sql.Append(" AND IP = @address");
+                sql.Append(" AND IP LIKE @address");
 
             using (SqlCommand cmd = new SqlCommand(sql.ToString(), conn))
             {
                 if (!string.IsNullOrEmpty(value.ip_user))
-                    cmd.Parameters.AddWithValue("@username", value.ip_user);
+                    cmd.Parameters.AddWithValue("@username", $"%{value.ip_user}%");
+              //    cmd.Parameters.AddWithValue("@username", "%" + value.ip_user + "%"); 같은 의미이나 가독성을 위해 위처럼 사용
                 if (!string.IsNullOrEmpty(value.ip_address))
-                    cmd.Parameters.AddWithValue("@address", value.ip_address);
+                    cmd.Parameters.AddWithValue("@address", $"%{value.ip_address}%");
+              //    cmd.Parameters.AddWithValue("@username", "%" + value.ip_address + "%");
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                 {
